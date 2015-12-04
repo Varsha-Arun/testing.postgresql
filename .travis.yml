@@ -13,3 +13,6 @@ cache:
     - $HOME/.cache/pip
 install: pip install docutils tox
 script: tox
+notifications:
+  email:
+    varsha@shippable.com
