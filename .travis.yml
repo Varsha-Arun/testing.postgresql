@@ -1,16 +1,17 @@
 language: python
 python: 2.7
+build_image: drydock/u14pytpls:prod
 env:
   matrix:
     - TOXENV=py26
     - TOXENV=py27
-    - TOXENV=py32
-    - TOXENV=py33
-    - TOXENV=py34
-    - TOXENV=coverage
-cache:
-  directories:
-    - $HOME/.cache/pip
+  #  - TOXENV=py32
+   # - TOXENV=py33
+  #  - TOXENV=py34
+   # - TOXENV=coverage
+#cache:
+ # directories:
+  #  - $HOME/.cache/pip
 install: pip install docutils tox
 script: tox
 notifications:
