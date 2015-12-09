@@ -13,7 +13,7 @@ env:
  # directories:
   #  - $HOME/.cache/pip
 install: pip install docutils tox
-script: tox
+#script: tox
 notifications:
   email:
     varsha@shippable.com
