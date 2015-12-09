@@ -9,11 +9,11 @@ env:
    # - TOXENV=py33
   #  - TOXENV=py34
    # - TOXENV=coverage
-#cache:
- # directories:
-  #  - $HOME/.cache/pip
+cache:
+  directories:
+    - $HOME/.cache/pip
 install: pip install docutils tox
-#script: tox
+script: tox
 notifications:
   email:
     varsha@shippable.com
