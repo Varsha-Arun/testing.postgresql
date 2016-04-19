@@ -14,8 +14,8 @@ env:
    
 build:
   pre_ci_boot:
-      image_name: drydock/u14nodall
-      image_tag: prod
+      image_name: shiphitchcock1/sample_python
+      image_tag: latest
       pull: true
       options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
@@ -26,7 +26,7 @@ build:
     #- ls -al 
 
   post_ci:
-    - docker build -t=shiphitchcock1/sample_python:latest .
+    #- docker build -t=shiphitchcock1/sample_python:latest .
     - docker push shiphitchcock1/sample_python:latest
     #- docker tag -f shiphitchcock1/nod_multiplepush:buildtest shiphitchcock1/nod_multiplepush:pushtest
     #- docker push shiphitchcock1/nod_multiplepush:pushtest
