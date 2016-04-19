@@ -1,6 +1,6 @@
 language: python
 python: 2.7
-build_image: drydock/u14pytpls:prod
+
 env:
   matrix:
     - TOXENV=py26
@@ -9,11 +9,17 @@ env:
    # - TOXENV=py33
   #  - TOXENV=py34
    # - TOXENV=coverage
-cache:
-  directories:
-    - $HOME/.cache/pip
+build:
+  ci:
+    pre_ci_boot:
+      image_name: drydock/u12nodall
+      image_tag: prod
+      pull: true
+      options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+      
+#cache:
+ # directories:
+  #  - $HOME/.cache/pip
 install: pip install docutils tox
-script: tox
-notifications:
-  email:
-    varsha@shippable.com
+#script: tox
+
