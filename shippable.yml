@@ -1,0 +1,37 @@
+language: python
+
+python: 2.7
+
+env:
+  matrix:
+    - TOXENV=py26
+    - TOXENV=py27
+    - TEST=BETA
+  #  - TOXENV=py32
+   # - TOXENV=py33
+  #  - TOXENV=py34
+   # - TOXENV=coverage
+   
+build:
+  pre_ci_boot:
+      image_name: drydock/u14nodall
+      image_tag: prod
+      pull: true
+      options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+
+  ci:
+    - echo "$TEST"
+    #- node --version  
+    #- ps -eax
+    #- ls -al 
+
+  post_ci:
+    - docker build -t=shiphitchcock1/sample_python:latest .
+    - docker push shiphitchcock1/sample_python:latest
+    #- docker tag -f shiphitchcock1/nod_multiplepush:buildtest shiphitchcock1/nod_multiplepush:pushtest
+    #- docker push shiphitchcock1/nod_multiplepush:pushtest
+    
+integrations:
+  hub:
+    - integrationName: shiphitchcock1-hub
+      type: docker 
